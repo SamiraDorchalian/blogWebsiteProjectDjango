@@ -1,11 +1,7 @@
-{% for post in posts_list %}
-    {{ post.title }}
-    <br>
-    {{ post.text }}
-    <br>
-    {{ post.status }}
-    <br>
-    {{ post.datetime_created }}
-    <br>
-    <p>---------</p>
-{% endfor %}
+{% extends "_base.html" %}
+
+{% block page_title %}Post List{% endblock page_title %}
+
+{% block content %}
+    Hello
+{% endblock content %}
