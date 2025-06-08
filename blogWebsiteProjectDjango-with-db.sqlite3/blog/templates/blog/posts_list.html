@@ -13,6 +13,7 @@
                         <h6 class="card-subtitle mb-2 text-muted small py-2">{{ post.datetime_created }}</h6>
                         <p class="card-text py-3">{{ post.text }}</p>
                         <a href='{% url 'post_detail' post.id %}' class="btn btn-sm btn-success">Read More</a>
+                        <a href='{% url 'post_update' post.id %}' class="btn btn-sm btn-info">Edit</a>
                     </div>
                 </div>
             {% endfor %}
