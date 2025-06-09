@@ -38,13 +38,13 @@
         </div>
         <div class="mx-2 text-white">
           {% if user.is_authenticated %}
-              Welcome {{ user.username }}
-              <form action='{% url 'logout' %}' mathod='POST'>
-                {% csrf_token %}
-                <button class='btn btn-warning' type='submit'>Log out</button>
-              </form>
+              Welcome {{ user.username }} |
+                <form action='{% url 'logout' %}' mathod='POST'>
+                  {% csrf_token %}
+                  <button class='btn btn-warning' type='submit'>Log out</button>
+                </form>
           {% else %}
-              <a class='text-light' href="{% url 'login' %}">Log In</a>
+              <a class='text-light' href="{% url 'login' %}">Log In</a> | <a class='text-light' href="{% url 'signup' %}">Sign Up</a>
           {% endif %}
         </div>
       </div>
