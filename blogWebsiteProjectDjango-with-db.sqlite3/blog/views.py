@@ -1,10 +1,8 @@
-from django.shortcuts import render, redirect , reverse, get_object_or_404
-from django.contrib.auth.models import User
 from django.views import generic
 from django.urls import reverse_lazy
 
 from .models import Post
-from .forms import NewPostForm
+from .forms import PostForm
 
 
 class PostListView(generic.ListView):
@@ -22,13 +20,13 @@ class PostDetailView(generic.DetailView):
 
 
 class PostCreateView(generic.CreateView):
-    form_class = NewPostForm
+    form_class = PostForm
     template_name = 'blog/post_create.html'
 
 
 class PostUpdateView(generic.UpdateView):
     model = Post
-    form_class = NewPostForm
+    form_class = PostForm
     template_name = 'blog/post_create.html'
 
 
