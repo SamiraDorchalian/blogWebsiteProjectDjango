@@ -20,17 +20,10 @@ class PostDetailView(generic.DetailView):
     context_object_name = 'post'
 
 
-def post_create_view(request):
-    if request.method == 'POST':
-       form = NewPostForm(request.POST)
-       if form.is_valid():
-           form.save()
-           return redirect('posts_list')
+class PostCreateView(generic.CreateView):
+    form_class = NewPostForm
+    template_name = 'blog/post_create.html'
 
-    else:
-       form = NewPostForm()
-
-    return render(request, 'blog/post_create.html', context={'form': form})
 
 def post_update_view(request, pk):
     post = get_object_or_404(Post, pk=pk)
