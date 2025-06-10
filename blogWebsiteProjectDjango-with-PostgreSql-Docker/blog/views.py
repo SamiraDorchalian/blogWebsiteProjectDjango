@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
 from .models import Post
+from .forms import NewPostForm
 
 def post_list_view(request):
     posts_list = Post.objects.filter(status='pub')
@@ -12,4 +13,8 @@ def post_detail_view(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_create_view(request):
-    return render(request, 'blog/post_create.html')
+    if request.method == 'POST':
+        pass
+    else:
+        form = NewPostForm()
+    return render(request, 'blog/post_create.html', context={'form': form})
