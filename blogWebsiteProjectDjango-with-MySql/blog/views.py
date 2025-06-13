@@ -6,12 +6,12 @@ from .models import Post
 from .forms import NewPostForm
 
 def post_list_view(request):
-    posts_list = Post.objects.filter(status='pub')
-    return render(request, 'blog/posts_list.html', {'posts_list': posts_list})
+    posts_list = Post.objects.filter(status='pub').order_by('datetime_modified')
+    return render(request, 'blog/posts_list.html', context={'posts_list': posts_list})
 
 def post_detail_view(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    return render(request, 'blog/post_detail.html', context={'post': post})
 
 def post_create_view(request):
     if request.method == 'POST':
@@ -23,4 +23,25 @@ def post_create_view(request):
     else:
         form = NewPostForm()     
 
-    return render(request, 'blog/post_create.html', {'form': form} )
+    return render(request, 'blog/post_create.html', context={'form': form} )
+
+def post_update_view(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    form = NewPostForm(request.POST or None, instance=post)
+
+    if form.is_valid():
+        form.save()
+        return redirect('posts_list')
+
+    return render(request, 'blog/post_create.html', context={'form': form})
+
+
+def post_delete_view(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+
+    if request.method == 'POST':
+        post.delete()
+        return redirect('posts_list')
+
+    return render(request, 'blog/post_delete.html', context={'post': post} )
+
