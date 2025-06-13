@@ -13,6 +13,12 @@ class BlogPostTest(TestCase):
             status = Post.STATUS_CHOICES[0][0],
             author = self.user,
         )
+        self.post2 = Post.objects.create(
+            title = 'Post2',
+            text = 'This is the description of Post2',
+            status = Post.STATUS_CHOICES[1][0],
+            author = self.user,
+        )
 
     def test_post_list_url(self):
         response = self.client.get('/blog/')
@@ -43,3 +49,7 @@ class BlogPostTest(TestCase):
         response = self.client.get(reverse('post_detail', args=[999]))
         self.assertEqual(response.status_code, 404)
 
+    def test_draft_post_not_show_in_posts_list(self):
+        response = self.client.get(reverse('posts_list'))
+        self.assertContains(response, self.post1.title)
+        self.assertNotContains(response, self.post2.title)
