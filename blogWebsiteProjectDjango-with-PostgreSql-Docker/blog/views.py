@@ -9,7 +9,7 @@ class PostListView(generic.ListView):
     context_object_name = 'posts_list'
 
     def get_queryset(self):
-        return Post.objects.filter(status='pub').order_by('-datetime_modified')
+        return Post.objects.filter(status='pub').order_by('datetime_modified')
 
 
 class PostDetailView(generic.DetailView):
