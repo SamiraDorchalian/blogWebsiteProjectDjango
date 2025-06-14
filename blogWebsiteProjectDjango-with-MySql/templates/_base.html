@@ -30,10 +30,11 @@
                 Welcome {{ user.username }}
                 <form action='{% url "logout" %}' method='POST'>
                     {% csrf_token %}
-                    <button class="btn btn-sm btn-warning" type='submit'>LogOut</button>
+                    <button class="btn btn-sm btn-warning" type='submit'>LogOUT</button>
                 </form> 
             {% else %}
-                <a class='text-light' href='{% url "login" %}'>Login</a>
+                <a class='text-light' href='{% url "login" %}'>LogIN</a> | 
+                <a class='text-light' href='{% url "signup" %}'>SignUP</a>
             {% endif %}
         </div>
     </div>
