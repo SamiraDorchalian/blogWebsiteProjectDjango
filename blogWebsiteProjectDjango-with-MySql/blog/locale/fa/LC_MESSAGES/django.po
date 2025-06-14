@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-14 16:04+0330\n"
+"POT-Creation-Date: 2025-06-14 16:27+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,6 +56,30 @@ msgstr "به وبلاگ پایتون و جنگو خوش آمدید"
 #: .\context_processors.py:14
 msgid "We share python and django tips and tricks here"
 msgstr "ما در اینجا نکات و ترفندهای پایتون و جنگو را به اشتراک می‌گذاریم"
+
+#: .\models.py:7
+msgid "published"
+msgstr "عمومی"
+
+#: .\models.py:8
+msgid "Draft"
+msgstr "پیش نویس"
+
+#: .\models.py:11
+msgid "Title"
+msgstr "موضوع"
+
+#: .\models.py:12
+msgid "Comment Text"
+msgstr "متن یادداشت"
+
+#: .\models.py:13
+msgid "author"
+msgstr "نویسنده"
+
+#: .\models.py:16
+msgid "Status"
+msgstr "وضعیت"
 
 #: .\templates\blog\post_create.html:5 .\templates\blog\post_delete.html:4
 msgid "Add New Post"
