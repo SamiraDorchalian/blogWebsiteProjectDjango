@@ -1,6 +1,7 @@
 {% extends "_base.html" %}
 
-{% block page_title %}Post List{% endblock page_title %}
+{% load i18n %}
+{% block page_title %}{% trans "Post List" %}{% endblock page_title %}
 
 {% block content %}
     
@@ -13,20 +14,19 @@
                         <h5 class="card-title">{{ post.title }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted small py-2">{{ post.datetime_create }}</h6>
                         <p class="card-text py-3">{{ post.text }}</p>
-                        <a href="{% url 'post_detail' post.id %}" class="btn btn-sm btn-success">Read More</a>
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-sm btn-success">{% trans "Read More" %}</a>
                     </div>
                 </div>
             {% endfor %}
         </div>
         <div class="col-3">
             <div class="card my-4">
-                <h5 class="card-header">About</h5>
+                <h5 class="card-header">{% trans "About" %}</h5>
                 <div class="card-body">
-                    <p class="card-text">We love python and django. So we created a blog site to share our
-                        thoughts</p>
+                    <p class="card-text">{% trans "We love python and django. So we created a blog site to share our thoughts" %}</p>
                     <a href="https://github.com/SamiraDorchalian"
                         class="btn btn-sm btn-danger">
-                        More...
+                        {% trans "More..." %}
                     </a>
                 </div>
             </div>
